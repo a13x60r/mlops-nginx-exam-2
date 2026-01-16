@@ -54,9 +54,9 @@ fi
 
 # 5. Rate Limiting
 echo "[TEST] Rate Limiting (10 req/s)"
-echo "Sending 20 requests quickly..."
+echo "Sending 50 requests quickly..."
 LIMIT_HIT=0
-for i in {1..20}; do
+for i in {1..50}; do
     CODE=$(curl -k -u $USER:$PASS -s -w "%{http_code}\n" -o /dev/null $PREDICT_ENDPOINT -H "Content-Type: application/json" -d '{"sentence": "spam"}')
     if [[ "$CODE" == "503" ]]; then
         LIMIT_HIT=1
